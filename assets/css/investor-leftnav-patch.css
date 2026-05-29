@@ -1,0 +1,179 @@
+/* ── Page body wrapper: left nav + right content ── */
+.ir-page-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* ── Left sidebar icon nav ── */
+.ir-leftnav-section {
+  width: 260px;
+  min-width: 240px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 80px; 
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #93c5fd transparent;
+}
+.ir-leftnav-section::-webkit-scrollbar { width: 4px; }
+.ir-leftnav-section::-webkit-scrollbar-thumb { background: #93c5fd; border-radius: 4px; }
+
+/* ── Vertical nav container ── */
+.ir-iconnav--vertical {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  flex-wrap: nowrap !important;
+  background: #1e3a5f;
+  border: 1px solid #1a3352;
+  border-radius: 16px;
+  padding: 14px 12px;
+  box-shadow: 0 4px 20px rgba(30,58,95,0.18);
+}
+
+/* ── Each nav button: icon LEFT, label RIGHT ── */
+.ir-iconnav-btn--list {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+  padding: 9px 10px !important;
+  border-radius: 10px !important;
+  text-align: left !important;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  position: relative;
+}
+
+.ir-iconnav-btn--list:hover {
+  background: rgba(255,255,255,0.1) !important;
+}
+
+.ir-iconnav-btn--list.active {
+  background: #2563eb !important;
+  box-shadow: 0 2px 10px rgba(37,99,235,0.4);
+}
+
+.ir-iconnav-btn--list.active .ir-iconnav-label {
+  color: #fff !important;
+  font-weight: 700;
+}
+
+/* ── Smaller tile for list mode ── */
+.ir-iconnav-tile--sm {
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px;
+  border-radius: 10px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ir-iconnav-btn--list.active .ir-iconnav-tile--sm {
+  background: #ffffff;
+}
+
+.ir-iconnav-tile--sm .ir-iconnav-img {
+  width: 22px !important;
+  height: 22px !important;
+  object-fit: contain;
+}
+
+/* ── Badge on tile ── */
+.ir-iconnav-tile--sm .ir-iconnav-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #f59e0b;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+.ir-iconnav-btn--list.active .ir-iconnav-tile--sm .ir-iconnav-badge {
+  background: #fff;
+  color: #2563eb;
+}
+
+/* ── Label in list mode ── */
+.ir-iconnav-btn--list .ir-iconnav-label {
+  font-size: 13px !important;
+  font-weight: 500;
+  color: #bfdbfe;
+  line-height: 1.3;
+  white-space: normal !important;
+  flex: 1;
+  text-align: left !important;
+}
+
+/* ── Hide the bottom bar indicator (not needed in list mode) ── */
+.ir-iconnav-btn--list .ir-iconnav-bar {
+  display: none !important;
+}
+
+/* ── Main content fills remaining space ── */
+.ir-main--with-leftnav {
+  flex: 1;
+  min-width: 0;
+  padding-left: 1.5rem;
+}
+
+/* ── Remove old iconnav-section top padding if it existed ── */
+.ir-iconnav-section { display: none !important; }
+
+/* ── Responsive: collapse left nav on small screens & tablets ── */
+@media (max-width: 1024px) {
+  .ir-page-body {
+    flex-direction: column;
+  }
+  .ir-leftnav-section {
+    width: 100%;
+    min-width: unset;
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+  .ir-iconnav--vertical {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin-bottom: 10px;
+  }
+  .ir-iconnav-btn--list {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: auto !important;
+    min-width: 70px;
+    padding: 8px 6px !important;
+    text-align: center !important;
+  }
+  .ir-iconnav-btn--list .ir-iconnav-label {
+    font-size: 11px !important;
+    text-align: center;
+  }
+  .ir-main--with-leftnav {
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+}
